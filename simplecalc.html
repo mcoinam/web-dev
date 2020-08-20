@@ -1,0 +1,133 @@
+<html>
+<head>
+    <title>simplecalc</title>
+    <style>
+        
+        .box
+        {
+            margin-left: 650px;
+            margin-top: 80px;
+            background-color: #64c5d6;
+            border-radius: 50px;
+            width: 330px;
+            height: 500px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4), 0 6px 20px 0 rgba(0,0,0,0.1);
+        }
+        .displaydesign
+        {
+            width: 330px;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            background-color: #64c5d6;
+            font-weight: 700;
+            text-align: right;
+            height: 100px;
+            font-size: 30px;
+            color: #fff;
+            float:right;
+            border:none;
+            padding-right: 20px;
+        }
+        
+        .buttondesign
+        {
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            font-weight:700;
+            color: #5e5858;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            margin: 20px 5px 5px 20px;
+            outline: none;
+            font-size: 15px;
+        }
+        
+        .buttondesign#plus
+        {
+            background-color: #f08080;
+        }
+        .buttondesign#minus
+        {
+            background-color: #ffe0ac;
+        }
+        .buttondesign#multiply
+        {
+            background-color: #43d8c9;
+        }
+        .buttondesign#divide
+        {
+            background-color: #ffa41b;
+        }
+        .buttondesign#equals
+        {
+            background-color: #6886c5;
+        }
+        .buttondesign#percent
+        {
+            background-color: #4d98ec;
+        }
+        
+    </style>
+    
+    <script>
+        
+        function display(data)
+        {
+            document.getElementById('final_output').value += data;
+        }
+        function solve()
+        {
+            var expr = document.getElementById('final_output').value;
+            var soln = eval(expr);
+            document.getElementById("final_output").value = soln;
+        }
+        function c()
+        {
+            document.getElementById('final_output').value = "";
+        }
+        function ce()
+        {
+            var txt = document.getElementById('final_output').value;
+            txt = txt.slice(0,-1);
+            var txt = document.getElementById('final_output').value = txt;
+        }
+        function percent()
+        {
+            num = document.getElementById('final_output').value;
+            num = eval(num/100);
+            document.getElementById('final_output').value = num;
+        }
+        
+    </script>
+</head>
+<body  style="background-image: url('background.jpg')">
+    <div class="box">
+        
+        <input type="text" class="displaydesign" id="final_output"><br/>
+        
+        <button type="button" class="buttondesign" onclick="c()">C</button>
+        <button type="button" class="buttondesign" onclick="ce()">CE</button>
+        <button type="button" class="buttondesign" id="percent" onclick="percent()">%</button>
+        <button type="button" class="buttondesign" id="divide" onclick="display('/')">/</button><br/>
+        <button type="button" class="buttondesign" onclick="display('7')">7</button>
+        <button type="button" class="buttondesign" onclick="display('8')">8</button>
+        <button type="button" class="buttondesign" onclick="display('9')">9</button>
+        <button type="button" class="buttondesign" id="multiply" onclick="display('*')">*</button><br/>
+        <button type="button" class="buttondesign" onclick="display('4')">4</button>
+        <button type="button" class="buttondesign" onclick="display('5')">5</button>
+        <button type="button" class="buttondesign" onclick="display('6')">6</button>
+        <button type="button" class="buttondesign" id="minus" onclick="display('-')">-</button><br/>
+        <button type="button" class="buttondesign" onclick="display('1')">1</button>
+        <button type="button" class="buttondesign" onclick="display('2')">2</button>
+        <button type="button" class="buttondesign" onclick="display('3')">3</button>
+        <button type="button" class="buttondesign" id="plus" onclick="display('+')">+</button><br/>
+        <button type="button" class="buttondesign" onclick="display('.')">.</button>
+        <button type="button" class="buttondesign" onclick="display('0')">0</button>
+        <button type="button" class="buttondesign" onclick="display('00')">00</button>
+        <button type="button" class="buttondesign" id="equals" onclick="solve()">=</button>
+        
+    </div>
+</body>    
+</html>
